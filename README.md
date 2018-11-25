@@ -57,7 +57,15 @@ CREATE TABLE [dbo].[Stava] (
     FOREIGN KEY ([ID_uporabnik]) REFERENCES [dbo].[Uporabnik] ([ID_uporabnik])
 );
 
-ko vse to vneses
+ko vse to vneses, vnesi nekaj podatkov za drzavo in sport
+
+show table data in ročno vneses.
+
+če ti normaln runup ne dela, potem probi zamenjats iz iis na bettracker.
+
+če ti baza ne dela potem pojdi v appsettings.json in spremeni database string connection settings
+
+
 
 
 
