@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = "~/Views/Dashboard/headerdashboard.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Pregled</title>
+</head>
+<body>
+
+    <div class="container">
+        @{
+            if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success">
+                    @ViewBag.Success
+                </div>
+            }
+        }
+                <div style="margin-bottom:15px;">
+                    <a href="/Dashboard/Dodaj" class="btn btn-primary" role="button">Dodaj stavo</a>
+                </div>
+
+        @{
+            if (ViewBag.podatki != null)
+            {
+                var data = ViewBag.podatki;
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Home team</th>
+                            <th scope="col">Away team</th>
+                            <th scope="col">Multiplier</th>
+                            <th scope="col">Bet size</th>
+                            <th scope="col">Pick</th>
+                            <th scope="col">Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var x in data)
+                        {
+                            i++;
+                            double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
+
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@x.Ime_doma</td>
+                                <td>@x.Ime_goste</td>
+                                <td>@x.Kvota</td>
+                                <td>@x.Kolicina</td>
+                                <td>@x.Izbral</td>
+
+                                @if (x.Izid == 1)
+                                {
+                                    <td><span class="badge badge-success">@preracunano</span></td>
+                                }
+                                else
+                                {
+                                    preracunano = x.Kolicina * -1;
+                                    <td><span class="badge badge-danger">@preracunano</span></td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+</body>
+</html>

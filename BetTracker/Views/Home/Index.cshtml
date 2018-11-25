@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "headerhome.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    body, html {
+        height: 100%;
+    }
+
+    body { 
+        background-image: url("https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        height: 100%;
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+     }
+
+    .titlepage { 
+        position: absolute; 
+        left: 50%; 
+        top: 35%; 
+        transform: translate(-50%, -50%); 
+        font-size: 45px; 
+        color: black; 
+        font-family: "Verdana";
+    }
+    .sredina {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div class="titlepage"><h1>BettingTracker</h1></div>
+
+<div class="sredina" style="border-radius: 10px;">
+    <a href="/Home/Login" class="btn btn-success" role="button">Login</a>
+    <a href="/Home/Registracija" class="btn btn-danger" role="button">Registracija</a>
+</div>
+

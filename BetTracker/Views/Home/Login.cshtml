@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "headerhome.cshtml";
+    ViewData["Title"] = "Login";
+}
+
+<body>
+    <div class="container">
+        <form class="col-md-6"action="Login" method="post">
+            <div class="form-group">
+                <label>Email: </label>
+                <input type="text" name="email" class="form-control" id="email" placeholder="Vnesite svoj email naslov">
+            </div>
+
+            <div class="form-group">
+                <label>Geslo:</label>
+                <input type="password" name="geslo" class="form-control" id="geslo" placeholder="Vpišite geslo">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
