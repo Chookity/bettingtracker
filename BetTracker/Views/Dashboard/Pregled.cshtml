@@ -40,12 +40,12 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Home team</th>
-                            <th scope="col">Away team</th>
-                            <th scope="col">Multiplier</th>
-                            <th scope="col">Bet size</th>
-                            <th scope="col">Pick</th>
-                            <th scope="col">Outcome</th>
+                            <th scope="col">Domači</th>
+                            <th scope="col">Gosti</th>
+                            <th scope="col">Kvota</th>
+                            <th scope="col">Količina</th>
+                            <th scope="col">Izbera</th>
+                            <th scope="col">Izid</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,24 +57,29 @@
                             i++;
                             double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
 
-                            <tr>
-                                <th scope="row">@i</th>
-                                <td>@x.Ime_doma</td>
-                                <td>@x.Ime_goste</td>
-                                <td>@x.Kvota</td>
-                                <td>@x.Kolicina</td>
-                                <td>@x.Izbral</td>
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@x.Ime_doma</td>
+                            <td>@x.Ime_goste</td>
+                            <td>@x.Kvota</td>
+                            <td>@x.Kolicina</td>
+                            <td>@x.Izbral</td>
 
-                                @if (x.Izid == 1)
-                                {
-                                    <td><span class="badge badge-success">@preracunano</span></td>
-                                }
-                                else
-                                {
-                                    preracunano = x.Kolicina * -1;
-                                    <td><span class="badge badge-danger">@preracunano</span></td>
-                                }
-                            </tr>
+                            @if (x.Izid == 1)
+                            {
+                                <td><span class="badge badge-success">@preracunano</span></td>
+                            }
+                            else if (x.Izid == 2)
+                            {
+                                preracunano = x.Kolicina * -1;
+                                <td><span class="badge badge-danger">@preracunano</span></td>
+                            }
+                            else if (x.Izid == 3)
+                            {
+                                <td><span class="badge badge-warning">0 (V igri)</span></td>
+                            }
+
+                        </tr>
                         }
                     </tbody>
                 </table>

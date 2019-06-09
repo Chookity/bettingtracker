@@ -27,22 +27,22 @@
     <div class="container">
         <form class="col-md-6" action="PosodobiProfil" method="post">
             <div class="form-group">
-                <label>Ime:</label>
+                <label>Ime </label>
                 <input type="text" name="ime" value="@data.Ime" class="form-control" id="ime" placeholder="Vnesite ime uporabnika">
             </div>
 
             <div class="form-group">
-                <label>Priimek:</label>
+                <label>Priimek </label>
                 <input type="text" name="priimek" value="@data.Priimek" class="form-control" id="priimek" placeholder="Vnesite priimek uporabnika">
             </div>
 
             <div class="form-group">
-                <label>Email: </label>
+                <label>Email </label>
                 <input type="email" name="email" value="@data.Email" class="form-control" id="email" placeholder="Vnesite svoj email naslov">
             </div>
 
             <div class="form-group">
-                <label>Država:</label>
+                <label>Država </label>
                 <select class="form-control" name="drzava">
                     @foreach (var d in drzave)
                     {
