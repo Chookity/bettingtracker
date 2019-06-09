@@ -12536,11 +12536,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JurePC\\source\\repos\\BetTracker\\BetTracker\\BetTracker.csproj",
+      "projectUniqueName": "D:\\projects\\novo\\BettingTracker\\BetTracker\\BetTracker.csproj",
       "projectName": "BetTracker",
-      "projectPath": "C:\\Users\\JurePC\\source\\repos\\BetTracker\\BetTracker\\BetTracker.csproj",
+      "projectPath": "D:\\projects\\novo\\BettingTracker\\BetTracker\\BetTracker.csproj",
       "packagesPath": "C:\\Users\\JurePC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JurePC\\source\\repos\\BetTracker\\BetTracker\\obj\\",
+      "outputPath": "D:\\projects\\novo\\BettingTracker\\BetTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
