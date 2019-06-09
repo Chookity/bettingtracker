@@ -1,4 +1,21 @@
 ﻿
+<head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+</head>
+
 @{
     Layout = "headerhome.cshtml";
     ViewData["Title"] = "Login";
@@ -6,18 +23,34 @@
 
 <body>
     <div class="container">
-        <form class="col-md-6"action="Login" method="post">
-            <div class="form-group">
-                <label>Email: </label>
-                <input type="text" name="email" class="form-control" id="email" placeholder="Vnesite svoj email naslov">
-            </div>
+        <!-- Default form login -->
+        <div class="row" style="justify-content:center">
+            <form class="text-center border border-light p-5" action="Login" method="post" style="width: 500px">
 
-            <div class="form-group">
-                <label>Geslo:</label>
-                <input type="password" name="geslo" class="form-control" id="geslo" placeholder="Vpišite geslo">
-            </div>
+                <p class="h4 mb-4">Prijava</p>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <!-- Email -->
+                <input type="text" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+
+                <!-- Password -->
+                <input type="password" name="geslo" id="geslo" class="form-control mb-4" placeholder="Geslo">
+
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <!-- Forgot password -->
+                        <a href="">Ste pozabili geslo?</a>
+                    </div>
+                </div>
+
+                <!-- Sign in button -->
+                <button class="btn btn-info btn-block my-4" type="submit">Prijavi se</button>
+
+                <!-- Register -->
+                <p>
+                    Nimata računa?
+                    <a href="/Home/Registracija">Registracija</a>
+                </p>
+            </form>
+        </div>
     </div>
 </body>

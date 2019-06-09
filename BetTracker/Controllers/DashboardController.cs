@@ -112,7 +112,7 @@ namespace BetTracker.Controllers
             s.dodajStavo(Convert.ToInt16(TempData["ID_uporabnika"]), domaca_ekipa, gostujoca_ekipa, kvota, izbera, stava, sport, status);
 
             TempData.Keep();
-            ViewBag.Success = "Tekma je bila uspešno dodana!";
+            TempData["dodano"] = "Tekma je bila uspešno dodana!";
             return RedirectToAction("Pregled", "Dashboard");
         }
 
@@ -121,6 +121,11 @@ namespace BetTracker.Controllers
             if (TempData["ID_uporabnika"] == null)
             {
                 return RedirectToAction("Login", "Home");
+            }
+
+            if (TempData["dodano"] != null){
+                ViewBag.dodano = TempData["dodano"];
+                TempData["dodano"] = null;
             }
             TempData.Keep();
 

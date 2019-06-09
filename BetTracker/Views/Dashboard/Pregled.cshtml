@@ -21,16 +21,16 @@
 
     <div class="container">
         @{
-            if (ViewBag.Success != null)
+            if (ViewBag.dodano != null)
             {
                 <div class="alert alert-success">
-                    @ViewBag.Success
+                    @ViewBag.dodano
                 </div>
             }
         }
-                <div style="margin-bottom:15px;">
-                    <a href="/Dashboard/Dodaj" class="btn btn-primary" role="button">Dodaj stavo</a>
-                </div>
+        <div style="margin-bottom:15px;">
+            <a href="/Dashboard/Dodaj" class="btn btn-primary" role="button">Dodaj stavo</a>
+        </div>
 
         @{
             if (ViewBag.podatki != null)
@@ -57,29 +57,29 @@
                             i++;
                             double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
 
-                        <tr>
-                            <th scope="row">@i</th>
-                            <td>@x.Ime_doma</td>
-                            <td>@x.Ime_goste</td>
-                            <td>@x.Kvota</td>
-                            <td>@x.Kolicina</td>
-                            <td>@x.Izbral</td>
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@x.Ime_doma</td>
+                                <td>@x.Ime_goste</td>
+                                <td>@x.Kvota</td>
+                                <td>@x.Kolicina</td>
+                                <td>@x.Izbral</td>
 
-                            @if (x.Izid == 1)
-                            {
-                                <td><span class="badge badge-success">@preracunano</span></td>
-                            }
-                            else if (x.Izid == 2)
-                            {
-                                preracunano = x.Kolicina * -1;
-                                <td><span class="badge badge-danger">@preracunano</span></td>
-                            }
-                            else if (x.Izid == 3)
-                            {
-                                <td><span class="badge badge-warning">0 (V igri)</span></td>
-                            }
+                                @if (x.Izid == 1)
+                                {
+                                    <td><span class="badge badge-success">@preracunano</span></td>
+                                }
+                                else if (x.Izid == 2)
+                                {
+                                    preracunano = x.Kolicina * -1;
+                                    <td><span class="badge badge-danger">@preracunano</span></td>
+                                }
+                                else if (x.Izid == 3)
+                                {
+                                    <td><span class="badge badge-warning">0 (V igri)</span></td>
+                                }
 
-                        </tr>
+                            </tr>
                         }
                     </tbody>
                 </table>

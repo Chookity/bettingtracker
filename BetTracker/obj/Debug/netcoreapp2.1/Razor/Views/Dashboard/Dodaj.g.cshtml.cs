@@ -57,7 +57,7 @@ using BetTracker.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(122, 928, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ad0b6b243704fd595b803f8834f4f97", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f683e0f4f6e44f3d98f09b7a0c5267fa", async() => {
                 BeginContext(128, 915, true);
                 WriteLiteral(@"
 
@@ -93,7 +93,7 @@ using BetTracker.Models;
 #line default
 #line hidden
             BeginContext(1093, 2588, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc211934cae244c18dfb5c90effc2f00", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1768cbdd9f248bf88572ab64e3c2c6f", async() => {
                 BeginContext(1099, 33, true);
                 WriteLiteral("\r\n    <div class=\"container\">\r\n\r\n");
                 EndContext();
