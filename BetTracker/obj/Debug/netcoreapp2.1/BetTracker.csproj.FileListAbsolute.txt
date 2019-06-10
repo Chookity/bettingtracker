@@ -62,3 +62,35 @@ D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.Vi
 D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.dll
 D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.pdb
 D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csproj.CopyComplete
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.deps.json
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.runtimeconfig.json
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.runtimeconfig.dev.json
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.dll
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.pdb
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.Views.dll
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\bin\Debug\netcoreapp2.1\BetTracker.Views.pdb
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csprojAssemblyReference.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csproj.CoreCompileInputs.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.RazorAssemblyInfo.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.RazorAssemblyInfo.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.AssemblyInfoInputs.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.AssemblyInfo.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.TagHelpers.input.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.TagHelpers.output.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.RazorCoreGenerate.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Dodaj.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\headerdashboard.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Pregled.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Profil.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Statistika.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\headerhome.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Info.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Registracija.g.cshtml.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.RazorTargetAssemblyInfo.cache
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.RazorTargetAssemblyInfo.cs
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.Views.pdb
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.dll
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.pdb
+E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csproj.CopyComplete
