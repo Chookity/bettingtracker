@@ -7,7 +7,9 @@ najprej:
 File -> open -> Project -> najdeš kje imas in odpres bettracker.sln
 
 tools -> connect to database
+
 server name : (localdb)\mssqllocaldb
+
 database: master
 
 gres do server explorer, zberes eno bazo in dajes create table:
