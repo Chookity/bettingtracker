@@ -61,6 +61,11 @@ namespace BetTracker.Controllers
             return View();
         }
 
+        public IActionResult Pogoji()
+        {
+            return View();
+        }
+
         public IActionResult Login(string email, string geslo)
         {
             // TODO napake
