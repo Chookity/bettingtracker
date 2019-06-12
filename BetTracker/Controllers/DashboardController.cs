@@ -164,7 +164,7 @@ namespace BetTracker.Controllers
         {
             TempData.Remove("ID_uporabnika");
 
-            return RedirectToAction("Index", "Home");
+            return View("Odjava");
         }
     }
 }

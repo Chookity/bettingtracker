@@ -15,48 +15,17 @@
 
 
     <meta name="viewport" content="width=device-width" />
-    <title>Statistika</title>
+    <title>Odjava</title>
 </head>
 <body>
 
     <div class="container">
         <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px;">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Denar (€)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Skupaj</td>
-                        <td>@ViewBag.stanje</td>
-                    </tr>
+            <h3>Uspešna odjava!</h3>
 
-                    <tr>
-                        <td>Največji dobitek</td>
-                        <td>@ViewBag.maxdobljeno</td>
-                    </tr>
-
-                    <tr>
-                        <td>Največja izguba</td>
-                        <td>@ViewBag.maxizguba</td>
-                    </tr>
-
-                    <tr>
-                        <td>Dobite stav(%)</td>
-                        <td>@ViewBag.winp</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>Če ste se odjavili ponesreči, se lahko prijavite z klikom na spodji gumb</p>
+            <a href="/Home/Login" class="btn btn-success" role="button">Prijava</a>
         </div>
     </div>
 </body>
 </html>
-
-<script>
-    let navbar = document.querySelectorAll(".nav-item");
-    navbar[1].classList.add("active");
-</script>
-

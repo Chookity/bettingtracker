@@ -9,35 +9,38 @@
 }
 
 <body>
+    
     <div class="container">
-        <!-- Default form login -->
-        <div class="row" style="justify-content:center">
-            <form class="text-center border border-light p-5" action="Login" method="post" style="width: 500px">
+        <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px; min-height: 90%;">
+            <!-- Default form login -->
+            <div class="row" style="justify-content:center">
+                <form class="text-center border border-light p-5" action="Login" method="post" style="width: 500px">
 
-                <p class="h4 mb-4">Prijava</p>
+                    <p class="h4 mb-4">Prijava</p>
 
-                <!-- Email -->
-                <input type="text" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+                    <!-- Email -->
+                    <input type="text" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
 
-                <!-- Password -->
-                <input type="password" name="geslo" id="geslo" class="form-control mb-4" placeholder="Geslo">
+                    <!-- Password -->
+                    <input type="password" name="geslo" id="geslo" class="form-control mb-4" placeholder="Geslo">
 
-                <div class="d-flex justify-content-around">
-                    <div>
-                        <!-- Forgot password -->
-                        <a href="">Ste pozabili geslo?</a>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <!-- Forgot password -->
+                            <a href="">Ste pozabili geslo?</a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Sign in button -->
-                <button class="btn btn-info btn-block my-4" type="submit">Prijavi se</button>
+                    <!-- Sign in button -->
+                    <button class="btn btn-info btn-block my-4" type="submit">Prijavi se</button>
 
-                <!-- Register -->
-                <p>
-                    Nimate računa?
-                    <a href="/Home/Registracija">Registracija</a>
-                </p>
-            </form>
+                    <!-- Register -->
+                    <p>
+                        Nimate računa?
+                        <a href="/Home/Registracija">Registracija</a>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </body>
