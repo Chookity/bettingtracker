@@ -2,3 +2,9 @@
 /BetTracker/bin
 /BetTracker/obj
 /BetTracker/BetTracker.csproj
+git ad
+/BetTracker/bin/
+/BetTracker/bin/*
+/BetTracker/obj/*
+/BetTracker/obj/
+/BetTracker/obj
