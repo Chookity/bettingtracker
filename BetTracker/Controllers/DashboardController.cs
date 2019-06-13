@@ -158,6 +158,30 @@ namespace BetTracker.Controllers
             double maxizguba = s.maxIzguba(Convert.ToInt16(TempData["ID_uporabnika"]));
             string winp = s.winpercantage(Convert.ToInt16(TempData["ID_uporabnika"]));
 
+            List<TransportStava> seznam = new List<TransportStava>();
+            seznam = s.dobiVseStave(Convert.ToInt16(TempData["ID_uporabnika"]));
+
+            string cas = "0, ";
+
+            double dozdej = 0;
+            foreach (var x in seznam)
+            {
+                double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
+                if (x.Izid == 1)
+                {
+                    dozdej = dozdej + Math.Round(x.Kvota * x.Kolicina, 2);
+                    cas = cas + dozdej + ", ";
+                }
+                else if (x.Izid == 2)
+                {
+                    preracunano = x.Kolicina * -1;
+                    dozdej = dozdej + preracunano;
+                    cas = cas + dozdej + ", ";
+                }
+            }
+            //ViewBag.skozi_cas = "10, 30, 70, 150, 80, 40, 4, 0, 10, 0";
+            ViewBag.skozi_cas = cas;
+
             ViewBag.stanje = stanje;
             ViewBag.maxdobljeno = maxdobljeno;
             ViewBag.maxizguba = maxizguba;
