@@ -18,6 +18,14 @@
 
                     <p class="h4 mb-4">Prijava</p>
 
+                    @if (ViewBag.Error == "Napačno uporabniško ime ali geslo")
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+
                     <!-- Email -->
                     <input type="text" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
 

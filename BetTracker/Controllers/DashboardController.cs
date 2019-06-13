@@ -20,7 +20,8 @@ namespace BetTracker.Controllers
 
         public IActionResult Index()
         {
-            if (TempData["ID_uporabnika"] == null){
+            if (TempData["ID_uporabnika"] == null)
+            {
                 return RedirectToAction("Login", "Home");
             }
 
@@ -35,7 +36,7 @@ namespace BetTracker.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
-       
+
             int ID_uporabnika = Convert.ToInt32(TempData["ID_uporabnika"]);
 
             TempData.Keep();
@@ -87,23 +88,26 @@ namespace BetTracker.Controllers
 
             TempData.Keep();
 
-            if (domaca_ekipa == gostujoca_ekipa) {
+            if (domaca_ekipa == gostujoca_ekipa)
+            {
                 ViewBag.Message = "Ekipi ne smeta biti isti.";
                 return View("Dodaj");
             }
 
-            if (!(double.TryParse(kvota, out double n))) {
+            if (!(double.TryParse(kvota, out double n)))
+            {
                 ViewBag.Message = "Kvota mora biti zapisana z , in brez črk.";
                 return View("Dodaj");
             }
- 
+
             if (!(double.TryParse(stava, out double n1)))
             {
                 ViewBag.Message = "Količina mora biti zapisana z . in brez črk.";
                 return View("Dodaj");
             }
 
-            if (izbera != domaca_ekipa && izbera != gostujoca_ekipa) {
+            if (izbera != domaca_ekipa && izbera != gostujoca_ekipa)
+            {
                 ViewBag.Message = "Izbira se mora ujemati z eno izmed zgoraj napisanih ekip";
                 return View("Dodaj");
             }
@@ -123,7 +127,8 @@ namespace BetTracker.Controllers
                 return RedirectToAction("Login", "Home");
             }
 
-            if (TempData["dodano"] != null){
+            if (TempData["dodano"] != null)
+            {
                 ViewBag.dodano = TempData["dodano"];
                 TempData["dodano"] = null;
             }

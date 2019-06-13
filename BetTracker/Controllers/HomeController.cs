@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using BetTracker.DAL;
 using Microsoft.AspNetCore.Http;
+using System.Text.RegularExpressions;
 
 namespace BetTracker.Controllers
 {
@@ -14,7 +15,8 @@ namespace BetTracker.Controllers
     {
         private readonly IConfiguration configuration;
 
-        public HomeController(IConfiguration config) {
+        public HomeController(IConfiguration config)
+        {
             this.configuration = config;
         }
 
@@ -27,11 +29,17 @@ namespace BetTracker.Controllers
         {
             // validacija če so vse vnesene in ce sta gesli enaki, TODO pokaze kje je error
             if (ime == null)
-                return View("Index");
+            {
+                DALDrzava dz = new DALDrzava(configuration);
+                List<Drzava> d = dz.vrniVseDrzave();
+
+                ViewBag.Drzava = d;
+                return View("Registracija");
+            }
 
             if (priimek == null)
                 return View("Index");
-           
+
             // neki testiram
             TempData["test"] = "jure";
 
@@ -39,12 +47,45 @@ namespace BetTracker.Controllers
                 return View("Index");
 
             if ((geslo == null || geslo_ponovi == null) || (geslo != geslo_ponovi))
-                return View("Index");
+            {
+                ViewBag.Error = "Gesli se ne ujemata";
+                DALDrzava dz = new DALDrzava(configuration);
+                List<Drzava> d = dz.vrniVseDrzave();
 
+                ViewBag.Drzava = d;
+                return View("Registracija");
+            }
+            var regex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+            var match = Regex.Match(geslo, regex, RegexOptions.IgnoreCase);
+
+            if (!match.Success)
+            {
+                ViewBag.Error = "Minimalno 8 znakov in 1 številka";
+                DALDrzava dz = new DALDrzava(configuration);
+                List<Drzava> d = dz.vrniVseDrzave();
+
+                ViewBag.Drzava = d;
+                return View("Registracija");
+            }
             DALUporabnik dp = new DALUporabnik(configuration);
+
             int id_uporabnika = dp.addUporabnik(ime, priimek, email, drzava, geslo);
 
-            return View("Login");
+            if (id_uporabnika == -1)
+            {
+                ViewBag.Error = "Uporabnik s tem email naslovom že obstaja";
+                DALDrzava dz = new DALDrzava(configuration);
+                List<Drzava> d = dz.vrniVseDrzave();
+
+                ViewBag.Drzava = d;
+                return View("Registracija");
+            }
+            ViewBag.Success = "Registracija uspešna";
+            DALDrzava drza = new DALDrzava(configuration);
+            List<Drzava> dre = drza.vrniVseDrzave();
+
+            ViewBag.Drzava = dre;
+            return View("Registracija");
         }
 
         public IActionResult Registracija()
@@ -53,6 +94,7 @@ namespace BetTracker.Controllers
             List<Drzava> d = dz.vrniVseDrzave();
 
             ViewBag.Drzava = d;
+
             return View();
         }
 
@@ -79,7 +121,9 @@ namespace BetTracker.Controllers
 
             int login_uspesnost = dp.preveriLogin(email, geslo);
 
-            if (login_uspesnost == 0) {
+            if (login_uspesnost == 0)
+            {
+                ViewBag.Error = "Napačno uporabniško ime ali geslo";
                 return View("Login");
             }
 

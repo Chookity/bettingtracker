@@ -24,6 +24,18 @@ namespace BetTracker.DAL
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
+            // če že obstaja
+            string query1 = "SELECT ID_uporabnik FROM Uporabnik WHERE Email = @email;";
+            SqlCommand cmd1 = new SqlCommand(query1, conn);
+            cmd1.Parameters.AddWithValue("@email", email);
+
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            if (reader1.HasRows)
+            {
+                return -1;
+            }
+
             // nastavitev query
             string query = "INSERT INTO Uporabnik VALUES(@ime,@priimek,@email,@drzava,@geslo) select SCOPE_IDENTITY() as id;";
             SqlCommand cmd = new SqlCommand(query, conn);
