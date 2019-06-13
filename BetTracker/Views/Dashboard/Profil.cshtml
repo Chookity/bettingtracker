@@ -25,53 +25,25 @@
     }
 
     <div class="container">
-        <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px;">
-            <form class="col-md-6" action="PosodobiProfil" method="post">
-                <div class="form-group">
-                    <label>Ime </label>
-                    <input type="text" name="ime" value="@data.Ime" class="form-control" id="ime" placeholder="Vnesite ime uporabnika">
-                </div>
-
-                <div class="form-group">
-                    <label>Priimek </label>
-                    <input type="text" name="priimek" value="@data.Priimek" class="form-control" id="priimek" placeholder="Vnesite priimek uporabnika">
-                </div>
-
-                <div class="form-group">
-                    <label>Email </label>
-                    <input type="email" name="email" value="@data.Email" class="form-control" id="email" placeholder="Vnesite svoj email naslov">
-                </div>
-
-                <div class="form-group">
-                    <label>Država </label>
-                    <select class="form-control" name="drzava">
-                        @foreach (var d in drzave)
-                        {
-                            <option value="@d.ID_drzava">@d.Ime</option>
-                        }
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-info">Posodobi</button>
-            </form>
-
+        <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px; display: flex; justify-content:center;">
+    
             <form class="text-center border border-light p-5" action="PosodobiProfil" method="post" style="width: 900px;">
 
-            <p class="h4 mb-4">Registracija</p>
+            <p class="h4 mb-4">Moj Profil</p>
 
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" id="ime" name="ime" class="form-control" placeholder="Ime">
+                    <input type="text" id="ime" name="ime" value="@data.Ime" class="form-control" placeholder="Ime">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" name="priimek" id="priimek" class="form-control" placeholder="Priimek">
+                    <input type="text" name="priimek" value="@data.Priimek" id="priimek" class="form-control" placeholder="Priimek">
                 </div>
             </div>
 
             <!-- E-mail -->
-            <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+            <input type="email" id="email" name="email"  value="@data.Email" class="form-control mb-4" placeholder="E-mail">
 
             <select class="form-control mb-4" name="drzava">
                 @foreach (var d in drzave)
@@ -80,25 +52,10 @@
                 }
             </select>
 
-            <!-- Password -->
-            <input type="password" name="geslo" id="geslo" class="form-control mb-4" placeholder="Geslo" aria-describedby="geslo">
-
-            <input type="password" name="geslo_ponovi" id="geslo_ponovi" class="form-control mb-4" placeholder="Ponovi geslo" aria-describedby="geslo_ponovi">
-            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                Minimalno 8 znakov in 1 številka
-            </small>
-
             <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block" type="submit">Registracija</button>
+            <button class="btn btn-info my-4 btn-block" type="submit">Posodobi</button>
 
-            <hr>
-
-            <!-- Terms of service -->
-            <p>
-                Z registracijo se strinjate z našimi pogoji
-                <a href="/Home/Pogoji">pogoji uporabe</a>
-
-                </form>
+            </form>
         </div>
     </div>
 

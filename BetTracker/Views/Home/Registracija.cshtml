@@ -15,10 +15,10 @@
 
                 <p class="h4 mb-4">Registracija</p>
 
-                @if (ViewBag.Success == "Registracija uspešna")
+                @if (ViewBag.Error != null)
                 {
-                    <div class="alert alert-success" role="alert">
-                        @ViewBag.Success
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.Error
                     </div>
                 }
 
@@ -48,30 +48,9 @@
 
                 <input type="password" name="geslo_ponovi" id="geslo_ponovi" class="form-control mb-4" placeholder="Ponovi geslo" aria-describedby="geslo_ponovi">
 
-                @if (ViewBag.Error == "Gesli se ne ujemata")
-                {
-                    <div class="alert alert-danger" role="alert">
-                        @ViewBag.Error
-                    </div>
-                }
-
-
-                @if (ViewBag.Error == "Minimalno 8 znakov in 1 številka")
-                {
-                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                        <div class="alert alert-danger" role="alert">
-                            @ViewBag.Error
-                        </div>
-                    </small>
-
-                }
-
-                else
-                {
-                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                        Minimalno 8 znakov in 1 številka
-                    </small>
-                }
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    Minimalno 8 znakov in 1 številka
+                </small>
 
                 <!-- Sign up button -->
                 <button class="btn btn-info my-4 btn-block" type="submit">Registracija</button>

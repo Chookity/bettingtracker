@@ -112,7 +112,7 @@ namespace BetTracker.DAL
             conn.Open();
 
             // nastavitev query
-            string q = "SELECT e.Ime as Ime_doma, e1.Ime as Ime_goste, s.Kvota, s.Kolicina, s.Izid, sp.Naziv as Vrsta_sporta , (SELECT Ime from Ekipa where ID_ekipa = s.Izbera) as Izbral from Stava s inner join Ekipa e on e.ID_ekipa=s.ID_ekipa_doma inner join Ekipa e1 on s.ID_ekipa_goste=e1.ID_ekipa inner join Sport sp on s.ID_sport=sp.ID_sport where s.ID_uporabnik=@id;";
+            string q = "SELECT e.Ime as Ime_doma, e1.Ime as Ime_goste, s.Kvota, s.Kolicina, s.Izid, sp.Naziv as Vrsta_sporta, (SELECT Ime from Ekipa where ID_ekipa = s.Izbera) as Izbral, s.ID_stava from Stava s inner join Ekipa e on e.ID_ekipa=s.ID_ekipa_doma inner join Ekipa e1 on s.ID_ekipa_goste=e1.ID_ekipa inner join Sport sp on s.ID_sport=sp.ID_sport where s.ID_uporabnik=@id;";
             SqlCommand cmd = new SqlCommand(q, conn);
 
             cmd.Parameters.AddWithValue("@id", ID_uporabnika);
@@ -124,6 +124,7 @@ namespace BetTracker.DAL
                 while (reader.Read())
                 {
                     TransportStava tmp = new TransportStava();
+
                     tmp.Ime_doma = reader[0].ToString();
                     tmp.Ime_goste = reader[1].ToString();
                     tmp.Kvota = Math.Round(Convert.ToDouble(reader[2]), 2);
@@ -131,7 +132,7 @@ namespace BetTracker.DAL
                     tmp.Izid = Convert.ToInt16(reader[4]);
                     tmp.Naziv = reader[5].ToString();
                     tmp.Izbral = reader[6].ToString();
-
+                    tmp.ID_stava = Convert.ToInt16(reader[7]);
                     seznam.Add(tmp);
                 }
             }
