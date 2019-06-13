@@ -1,0 +1,21 @@
+JURE:
+- urejanje stave 
+
+TILEN:
+- "dodaj" dodaj naslov
+- info stran
+
+
+- pozabljeno geslo
+- reset gesla, nov pogled, generannje stringa
+- "profil" odstrani mail, dodaj lable, spremeni geslo
+- "pregled" all time profit/loss 
+- "pregled" min-width
+- rankinge (win, loss, ratio, profit)
+- login odstrani min-height
+- "dodaj" gumb poveèaj
+
+- skladne forme
+
+- "statistika" dodaj €, grafi?
+- odjava isti controller
