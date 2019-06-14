@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Dashboard/headerdashboard.cshtml";
 }
 @using BetTracker.Models
@@ -18,7 +17,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Domov</title>
 </head>
-@{ 
+@{
     var data = ViewBag.Message;
 }
 <body>
@@ -27,12 +26,12 @@
             <p class="h4 mb-4">Nova stava</p>
 
             @{
-                if (data != null)
-                {
-                    <div class="alert alert-danger">
-                        @data
-                    </div>
-                }
+            if (data != null)
+            {
+            <div class="alert alert-danger">
+                @data
+            </div>
+            }
             }
 
             <form action="VnesiStavo" method="post" id="vnos" style="width: 900px">
@@ -84,7 +83,7 @@
                 <button type="submit" class="btn btn-info">Dodaj</button>
             </form>
         </div>
-        </div>
+    </div>
 </body>
 </html>
 
@@ -139,7 +138,7 @@
     let gostujoca_ekipa = document.getElementById('gostujoca_ekipa');
 
     gostujoca_ekipa.addEventListener('change', function () {
-    
+
         pick.style = "display: block";
         let d_ekipa = gostujoca_ekipa.value;
 
@@ -157,7 +156,7 @@
             option.innerHTML = d_value;
             select.appendChild(option);
         }
-       
+
         select.appendChild(option);
     });
 </script>

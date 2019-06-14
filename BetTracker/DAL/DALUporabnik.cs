@@ -67,7 +67,7 @@ namespace BetTracker.DAL
             string query = "SELECT ID_uporabnik from Uporabnik where email = @email and geslo = @geslo;";
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@email", email);   
+            cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@geslo", geslo);
 
             // if prazen
@@ -78,7 +78,8 @@ namespace BetTracker.DAL
                 reader.Read();
                 uID = Convert.ToInt16(reader[0]);
             }
-            else {
+            else
+            {
                 uID = 0;
             }
 
@@ -87,7 +88,8 @@ namespace BetTracker.DAL
             return uID;
         }
 
-        public Uporabnik dobiPodatke(int ID_uporabnika) {
+        public Uporabnik dobiPodatke(int ID_uporabnika)
+        {
             // connection na bazo
             string connStr = configuration.GetConnectionString("DefaultConnection");
             SqlConnection conn = new SqlConnection(connStr);
@@ -110,7 +112,7 @@ namespace BetTracker.DAL
                 u.Email = reader[3].ToString();
                 u.Drzava = reader[4].ToString();
             }
-    
+
             conn.Close();
 
             return u;
@@ -122,18 +124,35 @@ namespace BetTracker.DAL
             string connStr = configuration.GetConnectionString("DefaultConnection");
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
+            int updated;
+            if (u.Geslo == null)
+            {
+                string query = "UPDATE Uporabnik set Ime=@ime,Priimek=@priimek,Drzava=@drzava where ID_uporabnik = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-            // nastavitev query
-            string query = "UPDATE Uporabnik set Ime=@ime,Priimek=@priimek,Email=@email,Drzava=@drzava where ID_uporabnik = @id";
-            SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", ID_uporabnika);
+                cmd.Parameters.AddWithValue("@ime", u.Ime);
+                cmd.Parameters.AddWithValue("@priimek", u.Priimek);
+                cmd.Parameters.AddWithValue("@drzava", u.Drzava);
+                updated = cmd.ExecuteNonQuery();
+            }
 
-            cmd.Parameters.AddWithValue("@id", ID_uporabnika);
-            cmd.Parameters.AddWithValue("@ime", u.Ime);
-            cmd.Parameters.AddWithValue("@priimek", u.Priimek);
-            cmd.Parameters.AddWithValue("@email", u.Email);
-            cmd.Parameters.AddWithValue("@drzava", u.Drzava);
+            else
+            {
+                string query = "UPDATE Uporabnik set Ime=@ime,Priimek=@priimek,Drzava=@drzava,Geslo=@geslo where ID_uporabnik = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-            int updated = cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@id", ID_uporabnika);
+                cmd.Parameters.AddWithValue("@ime", u.Ime);
+                cmd.Parameters.AddWithValue("@priimek", u.Priimek);
+                cmd.Parameters.AddWithValue("@drzava", u.Drzava);
+                cmd.Parameters.AddWithValue("@geslo", u.Geslo);
+                updated = cmd.ExecuteNonQuery();
+            }
+
+
+
+
 
             conn.Close();
 

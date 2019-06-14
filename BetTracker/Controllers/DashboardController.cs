@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using BetTracker.Models;
 using BetTracker.DAL;
 using Microsoft.Extensions.Configuration;
+using System.Text.RegularExpressions;
 
 namespace BetTracker.Controllers
 {
@@ -54,11 +55,38 @@ namespace BetTracker.Controllers
             return View();
         }
 
-        public IActionResult PosodobiProfil(Uporabnik u)
+        public IActionResult PosodobiProfil(Uporabnik u, string geslo_ponovi)
         {
+
             if (TempData["ID_uporabnika"] == null)
             {
                 return RedirectToAction("Login", "Home");
+            }
+
+            DALUporabnik dpp = new DALUporabnik(configuration);
+            int ID_uporabnikaa = Convert.ToInt32(TempData["ID_uporabnika"]);
+            Uporabnik uu = dpp.dobiPodatke(ID_uporabnikaa);
+
+            DALDrzava dz = new DALDrzava(configuration);
+            List<Drzava> d = dz.vrniVseDrzave();
+
+            ViewBag.Drzava = d;
+            ViewBag.Message = uu;
+            if (u.Geslo != null || geslo_ponovi != null)
+            {
+                if (u.Geslo != geslo_ponovi)
+                {
+                    ViewBag.Error = "Gesli se ne ujemata";
+                    return View("Profil");
+                }
+                var regex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+                var match = Regex.Match(u.Geslo, regex, RegexOptions.IgnoreCase);
+
+                if (!match.Success)
+                {
+                    ViewBag.Error = "Geslo mora vsebovati minimalno 8 znakov in 1 številka";
+                    return View("Profil");
+                }
             }
 
             int ID_uporabnika = Convert.ToInt32(TempData["ID_uporabnika"]);
@@ -69,8 +97,8 @@ namespace BetTracker.Controllers
 
             // todo error če je failov request
             int ratal = Convert.ToInt32(dp.posodobiUporabnika(ID_uporabnika, u));
-
-            return RedirectToAction("Profil", "Dashboard");
+            ViewBag.Success = "Podatki uspešno posodobljeni";
+            return View("Profil");
 
         }
 
@@ -140,6 +168,7 @@ namespace BetTracker.Controllers
             seznam = s.dobiVseStave(Convert.ToInt16(TempData["ID_uporabnika"]));
 
             ViewBag.podatki = seznam;
+            ViewBag.win_loss = s.trenutnoStanje(Convert.ToInt16(TempData["ID_uporabnika"]));
 
             return View();
         }

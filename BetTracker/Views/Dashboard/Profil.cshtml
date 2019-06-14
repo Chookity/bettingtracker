@@ -26,34 +26,52 @@
 
     <div class="container">
         <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px; display: flex; justify-content:center;">
-    
+
             <form class="text-center border border-light p-5" action="PosodobiProfil" method="post" style="width: 900px;">
 
-            <p class="h4 mb-4">Moj Profil</p>
+                <p class="h4 mb-4">Moj Profil</p>
 
-            <div class="form-row mb-4">
-                <div class="col">
-                    <!-- First name -->
-                    <input type="text" id="ime" name="ime" value="@data.Ime" class="form-control" placeholder="Ime">
-                </div>
-                <div class="col">
-                    <!-- Last name -->
-                    <input type="text" name="priimek" value="@data.Priimek" id="priimek" class="form-control" placeholder="Priimek">
-                </div>
-            </div>
-
-            <!-- E-mail -->
-            <input type="email" id="email" name="email"  value="@data.Email" class="form-control mb-4" placeholder="E-mail">
-
-            <select class="form-control mb-4" name="drzava">
-                @foreach (var d in drzave)
+                @if (ViewBag.Error != null)
                 {
-                    <option value="@d.ID_drzava">@d.Ime</option>
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.Error
+                    </div>
                 }
-            </select>
 
-            <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block" type="submit">Posodobi</button>
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.Success
+                    </div>
+                }
+
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" id="ime" name="ime" value="@data.Ime" class="form-control" placeholder="Ime">
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" name="priimek" value="@data.Priimek" id="priimek" class="form-control" placeholder="Priimek">
+                    </div>
+                </div>
+
+                <!-- E-mail -->
+                <input type="email" id="email" name="email" value="@data.Email" class="form-control mb-4" placeholder="E-mail" disabled>
+
+                <input type="password" name="geslo" id="geslo" class="form-control mb-4" placeholder="Geslo" aria-describedby="geslo">
+
+                <input type="password" name="geslo_ponovi" id="geslo_ponovi" class="form-control mb-4" placeholder="Ponovi geslo" aria-describedby="geslo_ponovi">
+
+                <select class="form-control mb-4" name="drzava">
+                    @foreach (var d in drzave)
+                    {
+                        <option value="@d.ID_drzava">@d.Ime</option>
+                    }
+                </select>
+
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block" type="submit">Posodobi</button>
 
             </form>
         </div>
