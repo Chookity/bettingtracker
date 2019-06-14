@@ -305,5 +305,125 @@ namespace BetTracker.DAL
             conn.Close();
             return vrni.ToString();
         }
+
+        public TransportStava dobiStavo(int ID_stave)
+        {
+            TransportStava tmp = new TransportStava();
+
+            // connection na bazo
+            string connStr = configuration.GetConnectionString("DefaultConnection");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            // nastavitev query
+            string q = "SELECT e.Ime as Ime_doma, e1.Ime as Ime_goste, s.Kvota, s.Kolicina, s.Izid, sp.Naziv as Vrsta_sporta, (SELECT Ime from Ekipa where ID_ekipa = s.Izbera) as Izbral, s.ID_stava from Stava s inner join Ekipa e on e.ID_ekipa=s.ID_ekipa_doma inner join Ekipa e1 on s.ID_ekipa_goste=e1.ID_ekipa inner join Sport sp on s.ID_sport=sp.ID_sport where s.ID_stava=@id;";
+            SqlCommand cmd = new SqlCommand(q, conn);
+            cmd.Parameters.AddWithValue("@id", ID_stave);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    tmp.Ime_doma = reader[0].ToString();
+                    tmp.Ime_goste = reader[1].ToString();
+                    tmp.Kvota = Math.Round(Convert.ToDouble(reader[2]), 2);
+                    tmp.Kolicina = Math.Round(Convert.ToDouble(reader[3]), 2);
+                    tmp.Izid = Convert.ToInt16(reader[4]);
+                    tmp.Naziv = reader[5].ToString();
+                    tmp.Izbral = reader[6].ToString();
+                    tmp.ID_stava = Convert.ToInt16(reader[7]);
+                }
+            }
+
+            conn.Close();
+
+            return tmp;
+        }
+
+        public int posodobiStavo(int ID_uporabnik, int ID_stave, string domaca_ekipa, string gostujoca_ekipa, string k, string izbera, string st, string status_stave)
+        {
+            double kvota = Math.Round(Convert.ToDouble(k), 2);
+            double stava = Math.Round(Convert.ToDouble(st), 2);
+            int status = Convert.ToInt32(status_stave);
+
+            int ID_doma = 0;
+            int ID_goste = 0;
+
+            // connection na bazo
+            string connStr = configuration.GetConnectionString("DefaultConnection");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            // nastavitev query
+            string q1 = "SELECT ID_ekipa from Ekipa where Ime = @ekipa";
+            SqlCommand cmd = new SqlCommand(q1, conn);
+
+            cmd.Parameters.AddWithValue("@ekipa", domaca_ekipa);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                ID_doma = Convert.ToInt16(reader[0]);
+            }
+            else
+            {
+                q1 = "INSERT into Ekipa values(@ekipa) select SCOPE_IDENTITY() as id;";
+                cmd = new SqlCommand(q1, conn);
+
+                cmd.Parameters.AddWithValue("@ekipa", domaca_ekipa);
+                SqlDataReader readerhome = cmd.ExecuteReader();
+                readerhome.Read();
+                ID_doma = Convert.ToInt16(readerhome[0]);
+            }
+
+            string q2 = "SELECT ID_ekipa from Ekipa where Ime = @ekipa";
+            SqlCommand cmd2 = new SqlCommand(q2, conn);
+
+            cmd2.Parameters.AddWithValue("@ekipa", gostujoca_ekipa);
+
+            SqlDataReader reader2 = cmd2.ExecuteReader();
+
+            if (reader2.HasRows)
+            {
+                reader2.Read();
+                ID_goste = Convert.ToInt16(reader2[0]);
+            }
+            else
+            {
+                q2 = "INSERT into Ekipa values(@ekipa) select SCOPE_IDENTITY() as id;";
+                cmd2 = new SqlCommand(q2, conn);
+
+                cmd2.Parameters.AddWithValue("@ekipa", gostujoca_ekipa);
+
+                reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+                ID_goste = Convert.ToInt16(reader2[0]);
+            }
+
+            string q3 = "UPDATE Stava SET ID_ekipa_doma=@id_doma, ID_ekipa_goste=@id_goste, Kvota=@kvota,Kolicina=@kolicina,Izid=@izid,Izbera=@izbera where ID_stava= @id_stava";
+
+            SqlCommand cmd3 = new SqlCommand(q3, conn);
+
+            cmd3.Parameters.AddWithValue("@id_doma", ID_doma);
+            cmd3.Parameters.AddWithValue("@id_goste", ID_goste);
+            cmd3.Parameters.AddWithValue("@kvota", kvota);
+            cmd3.Parameters.AddWithValue("@kolicina", stava);
+            cmd3.Parameters.AddWithValue("@izid", status);
+
+            if (izbera == domaca_ekipa)
+                cmd3.Parameters.AddWithValue("@izbera", ID_doma);
+            else
+                cmd3.Parameters.AddWithValue("@izbera", ID_goste);
+
+            cmd3.Parameters.AddWithValue("@id_stava", ID_stave);
+
+            int updated = cmd3.ExecuteNonQuery();
+            conn.Close();
+            return updated;
+        }
     }
 }

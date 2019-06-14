@@ -222,7 +222,43 @@ namespace BetTracker.Controllers
         {
             TempData.Remove("ID_uporabnika");
 
-            return View("Odjava");
+            return RedirectToAction("Odjava", "Home");
+        }
+
+        public IActionResult Uredi_stavo(string id)
+        {
+            if (TempData["ID_uporabnika"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            TempData.Keep();
+
+            DALStava s = new DALStava(configuration);
+            ViewBag.podatki = s.dobiStavo(Convert.ToInt16(id));
+            ViewBag.id_stave = id;
+
+
+            return View("Uredi_stavo");
+        }
+
+        public IActionResult PopraviStavo(string domaca_ekipa, string gostujoca_ekipa, string kvota, string izbera, string stava, string status, string id_stave)
+        {
+            if (TempData["ID_uporabnika"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            TempData.Keep();
+
+            DALStava s = new DALStava(configuration);
+            s.posodobiStavo(Convert.ToInt16(TempData["ID_uporabnika"]), Convert.ToInt16(id_stave), domaca_ekipa, gostujoca_ekipa, kvota, izbera, stava, status);
+
+            TempData.Keep();
+            TempData["dodano"] = "Uspešno ste posodobili stavo!";
+            ViewBag.dodano = "Uspešno ste posodobili stavo!";
+
+            return RedirectToAction("Pregled", "Dashboard");
         }
     }
 }

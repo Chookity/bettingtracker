@@ -4,6 +4,9 @@
 }
 
 <style>
+    .preracunano {
+        min-width: 40px;
+    }
 </style>
 
 <!DOCTYPE html>
@@ -32,7 +35,7 @@
                 }
             }
             <div style="margin-bottom:15px;">
-                <a href="/Dashboard/Dodaj" class="btn btn-info" role="button">Dodaj stavo</a>
+                <a href="/Dashboard/Dodaj" class="btn btn-info" style="width: 100%;" role="button">Dodaj stavo</a>
             </div>
 
             @{
@@ -60,7 +63,7 @@
                                 i++;
                                 double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
 
-                                <tr data-id="@x.ID_stava">
+                                <tr data-id="@x.ID_stava" class="vrstica">
                                     <td scope="row">@i</td>
                                     <td>@x.Ime_doma</td>
                                     <td>@x.Ime_goste</td>
@@ -70,16 +73,16 @@
 
                                     @if (x.Izid == 1)
                                     {
-                                        <td><span class="badge badge-success">@preracunano</span></td>
+                                        <td><span class="badge badge-success preracunano">@preracunano</span></td>
                                     }
                                     else if (x.Izid == 2)
                                     {
                                         preracunano = x.Kolicina * -1;
-                                        <td><span class="badge badge-danger">@preracunano</span></td>
+                                        <td><span class="badge badge-danger preracunano">@preracunano</span></td>
                                     }
                                     else if (x.Izid == 3)
                                     {
-                                        <td><span class="badge badge-warning">0 (V igri)</span></td>
+                                        <td><span class="badge badge-warning preracunano">0 (V igri)</span></td>
                                     }
                                 </tr>
                             }
@@ -87,7 +90,7 @@
                     </table>
                 }
             }
-            Skupno: @ViewBag.win_loss €
+            <b>Skupno: @ViewBag.win_loss €</b>
         </div>
 
     </div>
@@ -99,6 +102,21 @@
     let navbar = document.querySelectorAll(".nav-item");
     navbar[0].classList.add("active");
 
+
+    let tabela = document.getElementById('pregled');
+
+    $('.vrstica').click(function () {
+        let id = $(this).closest('tr').data('id');
+        if (!confirm("Ali želite urediti stavo?")) {
+            return;   
+        }
+
+        document.location.href = 'Uredi_stavo?id='+id;
+
+
+    });
+
+    
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
         table = document.getElementById("pregled");

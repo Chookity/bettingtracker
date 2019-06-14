@@ -106,6 +106,11 @@ namespace BetTracker.Controllers
             return View();
         }
 
+        public IActionResult Odjava()
+        {
+            return View("Odjava");
+        }
+
         public IActionResult Login(string email, string geslo)
         {
             // TODO napake

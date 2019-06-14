@@ -96,5 +96,6 @@ E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\Bett
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csproj.CopyComplete
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Pogoji.g.cshtml.cs
 D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Pogoji.g.cshtml.cs
-D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Odjava.g.cshtml.cs
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projekt\BettingTrackerReal\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Odjava.g.cshtml.cs
+D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Uredi_stavo.g.cshtml.cs
+D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Odjava.g.cshtml.cs

@@ -150,10 +150,6 @@ namespace BetTracker.DAL
                 updated = cmd.ExecuteNonQuery();
             }
 
-
-
-
-
             conn.Close();
 
             return updated;

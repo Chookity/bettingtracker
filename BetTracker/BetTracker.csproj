@@ -19,13 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Dashboard\Uredi_stavo.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Dashboard\Dodaj.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Dashboard\Profil.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Dashboard\Odjava.cshtml">
+    <Content Update="Views\Home\Odjava.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Dashboard\Statistika.cshtml">
