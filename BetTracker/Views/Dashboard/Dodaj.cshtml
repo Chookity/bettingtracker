@@ -23,68 +23,71 @@
 <body>
     <div class="container">
 
-            <h3 style="text-align:center;">Dodaj stavo</h3>
+            
 
-        <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px; display:flex; justify-content: center;">
+            <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px; display:flex; justify-content: center;">
+               
 
-            @{
-                if (data != null)
-                {
-                    <div class="alert alert-danger">
-                        @data
-                    </div>
+                        <form action="VnesiStavo" method="post" id="vnos" style="width: 900px; padding: 30px">
+                            <p class="h4 mb-4 text-center">Dodaj stavo</p>
+                            
+                @{
+                    if (data != null)
+                    {
+                        <div class="alert alert-danger">
+                            @data
+                        </div>
+                    }
                 }
-            }
 
-            <form action="VnesiStavo" method="post" id="vnos" style="width: 900px">
-                <div class="form-group">
-                    <label>Domača ekipa:</label>
-                    <input type="text" name="domaca_ekipa" class="form-control mb-4" id="domaca_ekipa">
-                </div>
+                            <div class="form-group">
+                                <label>Domača ekipa:</label>
+                                <input type="text" name="domaca_ekipa" class="form-control mb-4" id="domaca_ekipa">
+                            </div>
 
-                <div class="form-group">
-                    <label>Gostujoča ekipa:</label>
-                    <input type="text" name="gostujoca_ekipa" class="form-control mb-4" id="gostujoca_ekipa">
-                </div>
+                            <div class="form-group">
+                                <label>Gostujoča ekipa:</label>
+                                <input type="text" name="gostujoca_ekipa" class="form-control mb-4" id="gostujoca_ekipa">
+                            </div>
 
-                <div class="form-group">
-                    <label>Šport:</label>
-                    <select class="form-control" name="sport" id="sport">
-                        <option value="1">Nogomet</option>
-                        <option value="2">Košarka</option>
-                        <option value="3">Tenis</option>
-                        <option value="4">E-šport</option>
-                        <option value="5">Hokej</option>
-                    </select>
-                </div>
+                            <div class="form-group">
+                                <label>Šport:</label>
+                                <select class="form-control" name="sport" id="sport">
+                                    <option value="1">Nogomet</option>
+                                    <option value="2">Košarka</option>
+                                    <option value="3">Tenis</option>
+                                    <option value="4">E-šport</option>
+                                    <option value="5">Hokej</option>
+                                </select>
+                            </div>
 
-                <div class="form-group">
-                    <label>Kvota:</label>
-                    <input type="text" name="kvota" class="form-control" id="kvota">
-                </div>
+                            <div class="form-group">
+                                <label>Kvota:</label>
+                                <input type="text" name="kvota" class="form-control" id="kvota">
+                            </div>
 
-                <div class="form-group">
-                    <label>Vložek:</label>
-                    <input type="text" name="stava" class="form-control" id="stava">
-                </div>
+                            <div class="form-group">
+                                <label>Vložek:</label>
+                                <input type="text" name="stava" class="form-control" id="stava">
+                            </div>
 
-                <div class="form-group" style="display: none" id="pick">
-                    <label>Izbira:</label>
-                    <select name="izbera" class="form-control" id="izbera"></select>
-                </div>
+                            <div class="form-group" style="display: none" id="pick">
+                                <label>Izbira:</label>
+                                <select name="izbera" class="form-control" id="izbera"></select>
+                            </div>
 
-                <div class="form-group">
-                    <label>Status:</label>
-                    <select class="form-control" name="status" id="status">
-                        <option value="1">Zadeto</option>
-                        <option value="2">Izgubljeno</option>
-                        <option value="3">Ne odigrano</option>
-                    </select>
-                </div>
+                            <div class="form-group">
+                                <label>Status:</label>
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1">Zadeto</option>
+                                    <option value="2">Izgubljeno</option>
+                                    <option value="3">Ne odigrano</option>
+                                </select>
+                            </div>
 
-                <button type="submit" class="btn btn-info" style="width: 100%;">Dodaj</button>
-            </form>
-        </div>
+                            <button type="submit" class="btn btn-info" style="width: 100%;">Dodaj</button>
+                        </form>
+            </div>
     </div>
 </body>
 </html>

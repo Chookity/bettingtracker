@@ -5,7 +5,7 @@
 
 <style>
     .preracunano {
-        min-width: 40px;
+        min-width: 50px;
     }
 </style>
 
@@ -35,7 +35,7 @@
                 }
             }
             <div style="margin-bottom:15px;">
-                <a href="/Dashboard/Dodaj" class="btn btn-info" style="width: 100%;" role="button">Dodaj stavo</a>
+                <a href="/Dashboard/Dodaj" class="btn btn-info"  role="button">Dodaj stavo</a>
             </div>
 
             @{
@@ -68,17 +68,18 @@
                                     <td>@x.Ime_doma</td>
                                     <td>@x.Ime_goste</td>
                                     <td>@x.Kvota</td>
-                                    <td>@x.Kolicina</td>
+                                    <td>@x.Kolicina €</td>
                                     <td>@x.Izbral</td>
 
                                     @if (x.Izid == 1)
                                     {
-                                        <td><span class="badge badge-success preracunano">@preracunano</span></td>
+                                        preracunano -= x.Kolicina;
+                                        <td><span class="badge badge-success preracunano">@preracunano €</span></td>
                                     }
                                     else if (x.Izid == 2)
                                     {
                                         preracunano = x.Kolicina * -1;
-                                        <td><span class="badge badge-danger preracunano">@preracunano</span></td>
+                                        <td><span class="badge badge-danger preracunano">@preracunano €</span></td>
                                     }
                                     else if (x.Izid == 3)
                                     {
@@ -107,9 +108,9 @@
 
     $('.vrstica').click(function () {
         let id = $(this).closest('tr').data('id');
-        if (!confirm("Ali želite urediti stavo?")) {
+        /*if (!confirm("Ali želite urediti stavo?")) {
             return;   
-        }
+        }*/
 
         document.location.href = 'Uredi_stavo?id='+id;
 

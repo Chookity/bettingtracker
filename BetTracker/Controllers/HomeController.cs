@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using BetTracker.DAL;
 using Microsoft.AspNetCore.Http;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.Mail;
 
 namespace BetTracker.Controllers
 {
@@ -23,6 +25,56 @@ namespace BetTracker.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult PozabljenoGeslo()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> PosljiMail(string email)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            MailMessage mail = new MailMessage("BettingTrackerApp@gmail.com", email);
+            mail.Subject = "Pozabljeno geslo";
+            mail.Body = "Vaša nova koda je: " + finalString;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "BettingTrackerApp@gmail.com",
+                Password = "Uvprojekt1"
+            };
+
+            smtpClient.EnableSsl = true;
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate (object s,
+                    System.Security.Cryptography.X509Certificates.X509Certificate certificate,
+                    System.Security.Cryptography.X509Certificates.X509Chain chain,
+                    System.Net.Security.SslPolicyErrors sslPolicyErrors)
+            {
+                return true;
+            };
+
+            smtpClient.Send(mail);
+            DALUporabnik dp = new DALUporabnik(configuration);
+            dp.spremeniGeslo(email, finalString);
+
+            ViewBag.MailSuccess = "E-mail uspešno poslan";
+
+            return View("PozabljenoGeslo");
+            
+
         }
 
         public IActionResult Vstavi(string ime, string priimek, string email, string drzava, string geslo, string geslo_ponovi)

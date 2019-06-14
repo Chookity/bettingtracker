@@ -1,0 +1,34 @@
+﻿
+<head>
+
+</head>
+
+@{
+    Layout = "headerhome.cshtml";
+}
+
+<body>
+
+    <div class="container">
+        <div class="bg-light text-dark" style="padding: 30px; border-radius: 20px">
+            <!-- Default form login -->
+            <div class="row" style="justify-content:center">
+                <form class="text-center border border-light p-5" action="PosljiMail" method="post" style="width: 500px">
+
+                    <p class="h4 mb-4">Pozabljeno geslo</p>
+
+                    @if (ViewBag.MailSuccess != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewBag.MailSuccess
+                            
+                        </div>
+                    }
+                    <input type="text" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+                    <button class="btn btn-info btn-block my-4" type="submit">Poslji kodo na e-mail</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

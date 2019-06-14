@@ -118,6 +118,25 @@ namespace BetTracker.DAL
             return u;
         }
 
+        public void spremeniGeslo(string mail,string geslo)
+        {
+            // connection na bazo
+            string connStr = configuration.GetConnectionString("DefaultConnection");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            // nastavitev query
+            string query = "UPDATE uporabnik SET Geslo=@geslo WHERE Email=@mail";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@geslo", geslo);
+            cmd.Parameters.AddWithValue("@mail", mail);
+           
+            SqlDataReader reader = cmd.ExecuteReader();
+         
+            conn.Close();
+        }
+
         public int posodobiUporabnika(int ID_uporabnika, Uporabnik u)
         {
             // connection na bazo

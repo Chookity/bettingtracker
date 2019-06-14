@@ -143,6 +143,86 @@ namespace BetTracker.DAL
             return seznam;
         }
 
+        public List<int> dobiVseUporabnike()
+        {
+            List<int> seznam = new List<int>();
+
+            // connection na bazo
+            string connStr = configuration.GetConnectionString("DefaultConnection");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            // nastavitev query
+            string q = "SELECT ID_uporabnik FROM Uporabnik";
+            SqlCommand cmd = new SqlCommand(q, conn);
+
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    seznam.Add((int)reader[0]);
+                }
+            }
+
+            conn.Close();
+
+
+            return seznam;
+        }
+
+
+        public List<RankingModel> ranking(List<int> idji)
+        {
+            List<RankingModel> seznam = new List<RankingModel>();
+
+
+            foreach (int enid in idji)
+            {
+                RankingModel element = new RankingModel();
+                element.denar = trenutnoStanje(enid);
+                element.winloss = winpercantage(enid);
+                element.mail_uporabnik = dobiMail(enid);
+                seznam.Add(element);
+
+
+            }
+
+            return seznam;
+        }
+
+        public string dobiMail(int ID_uporabnika)
+        {
+          
+
+            // connection na bazo
+            string connStr = configuration.GetConnectionString("DefaultConnection");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            // nastavitev query
+            string q = "SELECT Email FROM Uporabnik WHERE ID_uporabnik=@idup";
+            SqlCommand cmd = new SqlCommand(q, conn);
+
+            cmd.Parameters.AddWithValue("@idup", ID_uporabnika);
+
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                return reader[0].ToString();
+            }
+
+            conn.Close();
+
+
+            return null;
+        }
+
         public double trenutnoStanje(int ID_uporabnika)
         { 
             double stanje = 0;

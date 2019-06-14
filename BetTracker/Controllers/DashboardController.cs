@@ -102,6 +102,16 @@ namespace BetTracker.Controllers
 
         }
 
+        public IActionResult Lestvica()
+        {
+
+            DALStava dpp = new DALStava(configuration);
+            List<int> seznamid = dpp.dobiVseUporabnike();
+            ViewBag.podatkiRanking = dpp.ranking(seznamid);
+
+            return View("Lestvica");
+        }
+
         public IActionResult Dodaj()
         {
             return View("Dodaj");
