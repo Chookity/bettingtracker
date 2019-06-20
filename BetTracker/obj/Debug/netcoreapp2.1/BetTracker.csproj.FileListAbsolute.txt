@@ -136,3 +136,5 @@ E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projektZares\BettingTracker\Bet
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projektZares\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\BetTracker.csproj.CopyComplete
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projektZares\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Lestvica.g.cshtml.cs
 E:\FRI\2.letnik\2.semester\Uporabniški vmesniki\projektZares\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\PozabljenoGeslo.g.cshtml.cs
+D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Lestvica.g.cshtml.cs
+D:\projects\novo\BettingTracker\BetTracker\obj\Debug\netcoreapp2.1\Razor\Views\Home\PozabljenoGeslo.g.cshtml.cs

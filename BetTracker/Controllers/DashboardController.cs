@@ -208,7 +208,7 @@ namespace BetTracker.Controllers
                 double preracunano = Math.Round(x.Kvota * x.Kolicina, 2);
                 if (x.Izid == 1)
                 {
-                    dozdej = dozdej + Math.Round(x.Kvota * x.Kolicina, 2);
+                    dozdej = dozdej + Math.Round(x.Kvota * x.Kolicina, 2)-x.Kolicina;
                     cas = cas + dozdej + ", ";
                 }
                 else if (x.Izid == 2)
